@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# This is where uploaded files will be saved in the repo
+media_folder: "assets/Uploads"
+# This is where the files will be served from relative to the site
+public_folder: "assets/Uploads"
+
+collections:
+  - name: "content"
+    label: "Website Content"
+    files:
+      - label: "Projects List"
+        name: "projects"
+        file: "data/projects.json"
+        description: "Add, edit, or delete the projects on your Projects page."
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - {label: "Category / Kicker (e.g. — Strategy & Growth)", name: "category", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Tags (Comma separated, e.g. Market Research, STP)", name: "tags", widget: "string"}
+              - {label: "Thumbnail Image (Optional)", name: "thumbnail", widget: "image", required: false}
+              - {label: "Presentation PDF (Optional)", name: "presentation", widget: "file", required: false}
